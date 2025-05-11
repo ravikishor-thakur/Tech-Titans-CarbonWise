@@ -1,0 +1,59 @@
+
+import React from "react";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/Dashboard";
+import Admin from "./pages/Admin";
+import Calculator from "./pages/Calculator";
+import Challenges from "./pages/Challenges";
+import Login from "./pages/Login";
+import Resources from "./pages/Resources";
+import Leaderboard from "./pages/Leaderboard";
+import { AuthProvider } from "./context/AuthContext";
+import { ProtectedRoute, AdminRoute } from "./components/auth/ProtectedRoute";
+
+// Create a client - initialize once outside the component to ensure it's not recreated on renders
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/resources/*" element={<Resources />} />
+            
+            {/* Protected routes for authenticated users */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/calculator" element={<Calculator />} />
+              <Route path="/calculator/:type" element={<Calculator />} />
+              <Route path="/challenges" element={<Challenges />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+            </Route>
+            
+            {/* Protected routes for admin users */}
+            <Route element={<AdminRoute />}>
+              <Route path="/admin" element={<Admin />} />
+            </Route>
+            
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          
+          {/* Toasters for notifications */}
+          <Toaster />
+          <Sonner />
+        </AuthProvider>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
