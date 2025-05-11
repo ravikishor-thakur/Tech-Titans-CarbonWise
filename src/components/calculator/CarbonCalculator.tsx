@@ -71,7 +71,7 @@ export default function CarbonCalculator() {
     const localFoodReduction = food.localFoodPercentage / 100 * 0.5;
     const wasteFactor = food.wastePercentage / 100 * 0.8;
     
-    const totalFood = dietFactor * 365 * (1 - localFoodReduction) * (1 + wasteFactor);
+    const totalFood = dietFactor * (1 - localFoodReduction) * (1 + wasteFactor);
 
     const totalConsumption = 500;
 
@@ -298,7 +298,7 @@ export default function CarbonCalculator() {
               {showResults ? (
                 <div>
                   <div className="text-center mb-6">
-                    <h3 className="text-2xl font-semibold">Your Estimated Annual Carbon Footprint</h3>
+                    <h3 className="text-2xl font-semibold">Your Estimated Carbon Footprint</h3>
                     <p className="text-4xl font-bold text-carbon-600 mt-2">{totalEmissions} kg CO₂e</p>
                     <p className="text-sm text-muted-foreground mt-2">
                       The global average is approximately 4,000 kg CO₂e per person per year

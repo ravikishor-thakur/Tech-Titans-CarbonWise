@@ -270,7 +270,7 @@ export default function Navbar() {
                       <Link to="/login" onClick={() => setIsMenuOpen(false)}>Log in</Link>
                     </Button>
                     <Button asChild className="bg-carbon-500 hover:bg-carbon-600 w-full">
-                      <Link to="/signup" onClick={() => setIsMenuOpen(false)}>Sign up</Link>
+                      <Link to="/login" onClick={() => setIsMenuOpen(false)}>Sign up</Link>
                     </Button>
                   </div>
                 )}

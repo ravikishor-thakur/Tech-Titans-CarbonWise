@@ -1,18 +1,92 @@
-# Welcome to your Lovable project
+# 🌍 Carbon Footprint Tracker
 
-## Project info
 
-**URL**: https://lovable.dev/projects/810e9c9e-a8c1-4e3e-9b20-8a56567fd709
+Website Name :- CarbonWise
 
-## How can I edit this code?
+**Track, reduce, and celebrate your carbon impact — one small action at a time.**  
+A web application to help individuals monitor their carbon footprint, earn rewards, and make meaningful environmental change.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/810e9c9e-a8c1-4e3e-9b20-8a56567fd709) and start prompting.
+- 📊 **Track Activities** — Log daily habits and calculate carbon emissions  
+- 🏆 **Progress Dashboard** — Visualize your CO₂ savings over time  
+- 🎖️ **Earn Badges** — Unlock milestones and celebrate your impact  
+- 🌱 **Community Leaderboard** — See how you rank among other eco-champions  
+- 🔔 **Reminders & Reports** — Get weekly summaries and stay on track  
+- 📤 **Social Sharing** — Share your achievements with the world
 
-Changes made via Lovable will be committed automatically to this repo.
+---
+
+## 🛠️ Tech Stack
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## 📂 Project Structure
+
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+  
+                                            CARBONWISE/
+├── assets/            # Static assets (images, JS constants)
+│   ├── assets.js
+│   └── treelogo.png
+
+├── public/            # Vite public folder (static files)
+
+├── src/
+│   ├── components/    # Reusable UI components (grouped logically)
+│   │   ├── auth/             # Components for authentication (forms, buttons)
+│   │   ├── calculator/       # Carbon calculator components
+│   │   │   └── CarbonCalculator.tsx
+│   │   ├── challenges/       # Components for challenges (cards, lists)
+│   │   ├── dashboard/        # Dashboard widgets/components
+│   │   ├── layout/           # Layout components (Navbar, Footer, Sidebar)
+│   │   ├── resources/        # Components to show learning/resources content
+│   │   ├── sections/         # Page sections (Hero, About, etc.)
+│   │   ├── ui/               # Generic reusable UI (buttons, cards, modals)
+
+│   ├── context/       # React context providers (AuthContext, ThemeContext)
+
+│   ├── hooks/         # Custom React hooks (useAuth, useCarbonCalc)
+
+│   ├── integrations/  # External service integrations (APIs, SDKs)
+
+│   ├── lib/           # Utility libraries or helper functions
+
+│   ├── pages/       
+│   │   ├── Admin.tsx
+│   │   ├── Calculator.tsx
+│   │   ├── Challenges.tsx
+│   │   ├── Dashboard.tsx
+│   │   ├── Index.tsx
+│   │   ├── Leaderboard.tsx
+│   │   ├── Login.tsx
+│   │   ├── NotFound.tsx
+│   │   └── Resources.tsx
+
+│   ├── App.css        # Global styles
+│   ├── App.tsx        # Root app component
+│   ├── main.tsx       # Vite entry point
+
+├── package.json
+├── tailwind.config.js
+├── vite.config.ts
+└── .gitignore
+
 
 **Use your preferred IDE**
 
@@ -52,22 +126,3 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/810e9c9e-a8c1-4e3e-9b20-8a56567fd709) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)

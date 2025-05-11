@@ -121,7 +121,7 @@ const Index = () => {
                 </p>
                 <div className="flex gap-4 mt-8">
                   <Button asChild size="lg" className="bg-white text-carbon-600 hover:bg-gray-100">
-                    <Link to="/signup">Get started for free</Link>
+                    <Link to="/calculator">Get started for free</Link>
                   </Button>
                   <Button asChild variant="outline" className="border-white text-white hover:bg-carbon-700">
                     
@@ -212,12 +212,11 @@ const Index = () => {
           }} transition={{
             duration: 0.6
           }}>
-              <h2 className="text-3xl font-bold mb-4">Ready to Reduce Your Carbon Footprint?</h2>
+              <h2 className="text-3xl font-bold mb-4">Track, reduce, celebrate your carbon </h2>
               <p className="text-lg mb-8 max-w-2xl mx-auto">
-                Join thousands of individuals and businesses taking action against climate change with CarbonWise
+                Footprint --make every action count for a greener future with CarbonWise.
               </p>
               <Button asChild size="lg" className="bg-white text-carbon-600 hover:bg-gray-100">
-                <Link to="/signup">Get Started Now</Link>
               </Button>
             </motion.div>
           </div>
