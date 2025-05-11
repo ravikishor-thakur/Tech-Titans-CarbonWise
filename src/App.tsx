@@ -17,7 +17,7 @@ import Leaderboard from "./pages/Leaderboard";
 import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute, AdminRoute } from "./components/auth/ProtectedRoute";
 
-// Create a client - initialize once outside the component to ensure it's not recreated on renders
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,7 +30,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/resources/*" element={<Resources />} />
             
-            {/* Protected routes for authenticated users */}
+            
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/calculator" element={<Calculator />} />
@@ -39,7 +39,7 @@ const App = () => (
               <Route path="/leaderboard" element={<Leaderboard />} />
             </Route>
             
-            {/* Protected routes for admin users */}
+            
             <Route element={<AdminRoute />}>
               <Route path="/admin" element={<Admin />} />
             </Route>
@@ -47,7 +47,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           
-          {/* Toasters for notifications */}
+          
           <Toaster />
           <Sonner />
         </AuthProvider>

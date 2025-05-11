@@ -21,7 +21,7 @@ const Admin = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Fetch users data
+  
   const { data: users, isLoading: usersLoading } = useQuery({
     queryKey: ['admin-users'],
     queryFn: async () => {
@@ -40,7 +40,7 @@ const Admin = () => {
     }
   });
 
-  // Fetch emissions data
+  
   const { data: emissions, isLoading: emissionsLoading } = useQuery({
     queryKey: ['admin-emissions'],
     queryFn: async () => {
@@ -59,7 +59,7 @@ const Admin = () => {
     }
   });
 
-  // Dummy data for statistics
+  
   const userData = [
     { name: 'Jan', activeUsers: 400, newUsers: 240 },
     { name: 'Feb', activeUsers: 300, newUsers: 138 },
@@ -78,7 +78,7 @@ const Admin = () => {
     { name: 'Jun', transportation: 2390, housing: 1400, food: 1000, total: 4790 },
   ];
 
-  // Filter users based on search term
+  
   const filteredUsers = users?.filter(user => 
     user.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.email?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -101,7 +101,7 @@ const Admin = () => {
               <TabsTrigger value="challenges">Challenges</TabsTrigger>
             </TabsList>
             
-            {/* Overview Tab */}
+            
             <TabsContent value="overview" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <Card>
@@ -165,7 +165,7 @@ const Admin = () => {
                 </Card>
               </div>
               
-              {/* Charts */}
+              
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card>
                   <CardHeader>
@@ -215,7 +215,7 @@ const Admin = () => {
               </div>
             </TabsContent>
             
-            {/* Users Tab */}
+            
             <TabsContent value="users" className="space-y-6">
               <Card>
                 <CardHeader>
@@ -287,7 +287,7 @@ const Admin = () => {
               </Card>
             </TabsContent>
             
-            {/* Emissions Tab */}
+            
             <TabsContent value="emissions" className="space-y-6">
               <Card>
                 <CardHeader>
@@ -359,7 +359,7 @@ const Admin = () => {
               </Card>
             </TabsContent>
             
-            {/* Challenges Tab */}
+            
             <TabsContent value="challenges" className="space-y-6">
               <Card>
                 <CardHeader>

@@ -17,7 +17,7 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from "@/integrations/supabase/client";
 import { Database } from "@/integrations/supabase/types";
 
-// Sample data for demonstration
+
 const leaderboardData = [
   { id: 1, name: "Sarah Johnson", rank: 1, emissions: 320, location: "Portland, OR", streak: 42, badges: ["gold", "achiever", "innovator"] },
   { id: 2, name: "Michael Chang", rank: 2, emissions: 410, location: "San Francisco, CA", streak: 36, badges: ["silver", "consistent"] },
@@ -44,7 +44,7 @@ const globalRankingData = [
   { country: "Kenya", emissions: 0.3, color: "#1d4ed8" },
 ];
 
-// Badge mapping
+
 const badgeColors = {
   gold: "bg-yellow-400 text-yellow-800",
   silver: "bg-gray-300 text-gray-800",
@@ -63,7 +63,7 @@ const Leaderboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { user } = useAuth();
   
-  // Fetch user streak data
+  
   const { data: userStreak } = useQuery({
     queryKey: ['user-streak', user?.id],
     queryFn: async () => {
@@ -86,13 +86,13 @@ const Leaderboard = () => {
     enabled: !!user?.id
   });
   
-  // Filter leaderboard data based on search term
+  
   const filteredData = leaderboardData.filter(entry => 
     entry.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
     entry.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Find current user in the leaderboard
+  
   const currentUserRank = leaderboardData.find(entry => entry.name === "Sarah Johnson");
 
   return (
@@ -119,7 +119,7 @@ const Leaderboard = () => {
               <TabsTrigger value="global">Global Stats</TabsTrigger>
             </TabsList>
             
-            {/* Local Ranking Tab */}
+            
             <TabsContent value="local">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2">
@@ -216,7 +216,7 @@ const Leaderboard = () => {
                   </Card>
                 </div>
                 
-                {/* User Stats Card */}
+                
                 <div>
                   <Card>
                     <CardHeader>
@@ -283,7 +283,7 @@ const Leaderboard = () => {
               </div>
             </TabsContent>
             
-            {/* National Ranking Tab */}
+            
             <TabsContent value="national">
               <Card>
                 <CardHeader>
@@ -346,7 +346,7 @@ const Leaderboard = () => {
               </Card>
             </TabsContent>
             
-            {/* Global Stats Tab */}
+            
             <TabsContent value="global">
               <div className="grid grid-cols-1 gap-6">
                 <Card>

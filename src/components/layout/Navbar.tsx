@@ -22,7 +22,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAuthenticated, user, logout, isAdmin } = useAuth();
   
-  // Handle scroll for navbar background
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -170,7 +169,6 @@ export default function Navbar() {
             )}
           </div>
           
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <Button variant="ghost" size="sm" onClick={toggleMenu} aria-label="Toggle menu">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -178,7 +176,6 @@ export default function Navbar() {
           </div>
         </div>
         
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 

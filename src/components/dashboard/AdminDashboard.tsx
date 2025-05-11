@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { Badge } from "@/components/ui/badge";
 import { Users, TrendingUp, TrendingDown, Award } from 'lucide-react';
 
-// Dummy data for the user statistics chart
+
 const userData = [
   { name: 'Jan', activeUsers: 400, newUsers: 240 },
   { name: 'Feb', activeUsers: 300, newUsers: 138 },
@@ -16,7 +16,6 @@ const userData = [
   { name: 'Jun', activeUsers: 590, newUsers: 220 },
 ];
 
-// Dummy data for the users table
 const users = [
   { id: 1, name: 'Alex Johnson', email: 'alex@example.com', status: 'Active', emissions: '1,250 kg', joined: '2023-01-15' },
   { id: 2, name: 'Samantha Lee', email: 'samantha@example.com', status: 'Active', emissions: '980 kg', joined: '2023-02-28' },
@@ -29,7 +28,7 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Total Users Card */}
+       
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Total Users</CardTitle>
@@ -45,7 +44,7 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
 
-        {/* Average Emissions Card */}
+        
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Avg. Emissions</CardTitle>
@@ -61,7 +60,7 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
 
-        {/* Challenge Participation Card */}
+        
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Challenge Participation</CardTitle>
@@ -78,7 +77,6 @@ export default function AdminDashboard() {
         </Card>
       </div>
 
-      {/* User Statistics Chart */}
       <Card>
         <CardHeader>
           <CardTitle>User Statistics</CardTitle>
@@ -101,7 +99,6 @@ export default function AdminDashboard() {
         </CardContent>
       </Card>
 
-      {/* Recent Users Table */}
       <Card>
         <CardHeader>
           <CardTitle>Recent Users</CardTitle>

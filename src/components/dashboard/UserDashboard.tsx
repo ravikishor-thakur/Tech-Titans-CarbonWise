@@ -5,7 +5,6 @@ import { BarChart3, ArrowDownRight, ArrowUpRight, Calendar, Award } from 'lucide
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Dummy data for the carbon emissions chart
 const emissionsData = [
   { name: 'Jan', emissions: 450 },
   { name: 'Feb', emissions: 420 },
@@ -20,7 +19,6 @@ export default function UserDashboard() {
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Carbon Footprint Card */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Total Carbon Footprint</CardTitle>
@@ -40,7 +38,6 @@ export default function UserDashboard() {
           </CardContent>
         </Card>
 
-        {/* Transportation Card */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Transportation</CardTitle>
@@ -60,7 +57,6 @@ export default function UserDashboard() {
           </CardContent>
         </Card>
 
-        {/* Electricity Usage Card */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Electricity Usage</CardTitle>
@@ -80,7 +76,6 @@ export default function UserDashboard() {
           </CardContent>
         </Card>
 
-        {/* Challenges Card */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Challenges Completed</CardTitle>
@@ -99,7 +94,6 @@ export default function UserDashboard() {
         </Card>
       </div>
 
-      {/* Emissions Over Time Chart */}
       <Card>
         <CardHeader>
           <CardTitle>Carbon Emissions Over Time</CardTitle>
@@ -126,7 +120,6 @@ export default function UserDashboard() {
         </CardContent>
       </Card>
 
-      {/* Recommendations Section */}
       <Card>
         <CardHeader>
           <CardTitle>Personalized Recommendations</CardTitle>

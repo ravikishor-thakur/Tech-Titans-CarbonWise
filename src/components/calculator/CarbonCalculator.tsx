@@ -26,49 +26,44 @@ export default function CarbonCalculator() {
   const [totalEmissions, setTotalEmissions] = useState(0);
   const [showResults, setShowResults] = useState(false);
 
-  // Form state for transportation
   const [transportation, setTransportation] = useState({
     carDistance: 0,
-    carEfficiency: 'medium', // low, medium, high
+    carEfficiency: 'medium', 
     publicTransport: 0,
     flights: 0,
   });
 
-  // Form state for home energy
   const [homeEnergy, setHomeEnergy] = useState({
     electricityUsage: 0,
     gasUsage: 0,
     renewablePercentage: 0,
   });
 
-  // Form state for food
   const [food, setFood] = useState({
-    dietType: 'mixed', // vegan, vegetarian, mixed, high-meat
+    dietType: 'mixed', 
     localFoodPercentage: 50,
     wastePercentage: 20,
   });
 
-  // Calculate emissions based on form inputs
+
   const calculateEmissions = () => {
-    // These are simplified calculations for demonstration
-    // In a real app, we'd use more accurate conversion factors
+   
     
-    // Transportation emissions (kg CO2e)
     const carEmissions = transportation.carDistance * 
                         (transportation.carEfficiency === 'low' ? 0.3 : 
                          transportation.carEfficiency === 'medium' ? 0.2 : 0.1);
     const publicTransportEmissions = transportation.publicTransport * 0.1;
-    const flightEmissions = transportation.flights * 200; // Rough estimate per flight
+    const flightEmissions = transportation.flights * 200; 
     
     const totalTransportation = carEmissions + publicTransportEmissions + flightEmissions;
     
-    // Home energy emissions
+  
     const electricityEmissions = homeEnergy.electricityUsage * 0.5 * (1 - (homeEnergy.renewablePercentage / 100));
     const gasEmissions = homeEnergy.gasUsage * 0.2;
     
     const totalHomeEnergy = electricityEmissions + gasEmissions;
     
-    // Food emissions
+    
     const dietFactor = food.dietType === 'vegan' ? 1.5 : 
                       food.dietType === 'vegetarian' ? 2.5 : 
                       food.dietType === 'mixed' ? 3.5 : 5;
@@ -77,11 +72,9 @@ export default function CarbonCalculator() {
     const wasteFactor = food.wastePercentage / 100 * 0.8;
     
     const totalFood = dietFactor * 365 * (1 - localFoodReduction) * (1 + wasteFactor);
-    
-    // Consumption emissions - using a placeholder fixed value for demo
+
     const totalConsumption = 500;
-    
-    // Update the chart data
+
     setResult([
       { name: 'Transportation', value: Math.round(totalTransportation), color: '#34d399' },
       { name: 'Home Energy', value: Math.round(totalHomeEnergy), color: '#10b981' },

@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
 
-// Define types for our authentication context
+
 type User = {
   id: string;
   email: string;
@@ -32,7 +32,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check if user is already logged in via localStorage
+    
     const storedUser = localStorage.getItem('carbonwise_user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -40,17 +40,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsLoading(false);
   }, []);
 
-  // For demo purposes, using mock authentication
-  // In a real app, this would connect to your authentication backend
+  
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      // Mock authentication - would be replaced with real auth API call
+      
       if (email && password) {
-        // Simulate API delay
+        
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        // Mock users for demo
+        
         const mockUsers = [
           { 
             id: '1', 
@@ -73,7 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const foundUser = mockUsers.find(u => u.email === email);
         
         if (foundUser) {
-          // Save user to localStorage
+          
           localStorage.setItem('carbonwise_user', JSON.stringify(foundUser));
           setUser(foundUser as User);
           
@@ -82,7 +81,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             description: `Welcome back, ${foundUser.name}!`,
           });
           
-          // Redirect based on role
+          
           if (foundUser.role === 'admin') {
             navigate('/admin');
           } else {
@@ -108,9 +107,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signupWithEmail = async (email: string, password: string, name: string) => {
     setIsLoading(true);
     try {
-      // Mock signup - would be replaced with real auth API call
+      
       if (email && password && name) {
-        // Simulate API delay
+        
         await new Promise(resolve => setTimeout(resolve, 1000));
         
         const newUser = {
@@ -122,7 +121,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           createdAt: new Date().toISOString()
         };
         
-        // Save user to localStorage
+        
         localStorage.setItem('carbonwise_user', JSON.stringify(newUser));
         setUser(newUser);
         

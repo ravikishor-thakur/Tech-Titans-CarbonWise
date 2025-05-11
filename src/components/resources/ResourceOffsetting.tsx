@@ -88,7 +88,6 @@ const ResourceOffsetting = () => {
           <TabsTrigger value="guide">How To Choose</TabsTrigger>
         </TabsList>
         
-        {/* About Carbon Offsets Tab */}
         <TabsContent value="about">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -182,7 +181,6 @@ const ResourceOffsetting = () => {
           </motion.div>
         </TabsContent>
         
-        {/* Offset Projects Tab */}
         <TabsContent value="projects">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -242,7 +240,6 @@ const ResourceOffsetting = () => {
           </motion.div>
         </TabsContent>
         
-        {/* How To Choose Tab */}
         <TabsContent value="guide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

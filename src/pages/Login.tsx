@@ -10,7 +10,7 @@ const Login = () => {
   const { isAuthenticated, isAdmin } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect if already logged in
+  
   useEffect(() => {
     if (isAuthenticated) {
       if (isAdmin) {

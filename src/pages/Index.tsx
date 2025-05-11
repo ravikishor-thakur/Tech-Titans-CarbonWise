@@ -11,7 +11,7 @@ const Index = () => {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section with gradient background */}
+        
         <section className="bg-gradient-to-b from-carbon-50 to-white py-16 lg:py-24">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -73,7 +73,7 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Alternative Green Banner Section for mobile */}
+        
         <section className="bg-carbon-600 py-16 lg:hidden">
           <div className="container mx-auto px-4">
             <motion.div initial={{
@@ -101,7 +101,7 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Green Banner Section (desktop) */}
+        
         <section className="hidden lg:block bg-carbon-600 py-16">
           <div className="container mx-auto px-4">
             <motion.div initial={{
@@ -136,7 +136,7 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Features Section */}
+        
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <motion.div className="text-center mb-12" initial={{
@@ -195,10 +195,10 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Testimonials Section */}
+        
         <TestimonialSection />
         
-        {/* Call to Action */}
+        
         <section className="bg-carbon-600 text-white py-16">
           <div className="container mx-auto px-4 text-center">
             <motion.div initial={{
