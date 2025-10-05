@@ -15,19 +15,19 @@ export default function Footer() {
               Helping individuals and small businesses measure, monitor, and reduce their carbon footprint with actionable insights and real-time tracking.
             </p>
             <div className="mt-6 flex items-center space-x-4">
-              <a href="#" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="Twitter">
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="GitHub">
+              <a href="https://github.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-carbon-600 transition-colors" aria-label="GitHub">
                 <Github size={20} />
               </a>
             </div>

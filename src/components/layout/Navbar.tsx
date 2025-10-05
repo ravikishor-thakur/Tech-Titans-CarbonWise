@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Image } from '@radix-ui/react-avatar';
+import { assets } from "../../../assets/assets.js";
 
 export default function Navbar() {
   const location = useLocation();
@@ -74,14 +75,29 @@ export default function Navbar() {
       .substring(0, 2);
   };
 
+  const getHoverClass = (name: string) => {
+    switch (name) {
+      case 'Calculate':
+        return 'hover:text-carbon-600';
+      case 'Resources':
+        return 'hover:text-carbon-600';
+      case 'Dashboard':
+        return 'hover:text-indigo-600';
+      case 'Challenges':
+        return 'hover:text-amber-600';
+      default:
+        return 'hover:text-carbon-500';
+    }
+  };
+
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <div className="h-8 w-8 rounded-full bg-carbon-600 mr-2"></div>
-              <span className="text-carbon-600 text-xl font-bold">CarbonWise</span>
+              <img src={assets.treelogo} alt="CarbonWise logo" className="h-10 w-10 md:h-12 md:w-12 mr-3 object-contain" />
+              <span className="text-carbon-600 text-2xl md:text-3xl font-extrabold tracking-tight">CarbonWise</span>
             </Link>
           </div>
           
@@ -97,7 +113,7 @@ export default function Navbar() {
                         className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-colors ${
                           isActive(item.path) 
                             ? 'text-carbon-600 font-medium' 
-                            : 'text-gray-600 hover:text-carbon-500'
+                            : `text-gray-600 ${getHoverClass(item.name)}`
                         }`}
                       >
                         <item.icon size={16} />
@@ -122,7 +138,7 @@ export default function Navbar() {
                     className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-colors ${
                       isActive(item.path) 
                         ? 'text-carbon-600 font-medium' 
-                        : 'text-gray-600 hover:text-carbon-500'
+                        : `text-gray-600 ${getHoverClass(item.name)}`
                     }`}
                   >
                     <item.icon size={16} />
@@ -159,11 +175,8 @@ export default function Navbar() {
               </div>
             ) : (
               <div className="ml-4 flex items-center space-x-2">
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" className="hover:text-carbon-600">
                   <Link to="/login">Log in</Link>
-                </Button>
-                <Button asChild className="bg-carbon-500 hover:bg-carbon-600">
-                  <Link to="/signup">Sign up</Link>
                 </Button>
               </div>
             )}
@@ -221,7 +234,7 @@ export default function Navbar() {
                           className={`flex items-center space-x-3 p-2 rounded-md ${
                             isActive(item.path) 
                               ? 'bg-carbon-50 text-carbon-600 font-medium' 
-                              : 'text-gray-600 hover:bg-gray-50'
+                              : `text-gray-600 hover:bg-gray-50 ${getHoverClass(item.name)}`
                           }`}
                           onClick={() => setIsMenuOpen(false)}
                         >
@@ -268,9 +281,6 @@ export default function Navbar() {
                   <div className="flex flex-col space-y-2 mt-2">
                     <Button asChild variant="outline" className="w-full">
                       <Link to="/login" onClick={() => setIsMenuOpen(false)}>Log in</Link>
-                    </Button>
-                    <Button asChild className="bg-carbon-500 hover:bg-carbon-600 w-full">
-                      <Link to="/login" onClick={() => setIsMenuOpen(false)}>Sign up</Link>
                     </Button>
                   </div>
                 )}

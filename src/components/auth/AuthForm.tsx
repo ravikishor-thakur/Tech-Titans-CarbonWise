@@ -47,9 +47,11 @@ export function AuthForm() {
     });
   };
 
+  const initialTab = typeof window !== 'undefined' && window.location.hash === '#register' ? 'register' : 'login';
+
   return (
     <div className="w-full max-w-md mx-auto">
-      <Tabs defaultValue="login" className="w-full">
+      <Tabs defaultValue={initialTab} className="w-full">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="login">Login</TabsTrigger>
           <TabsTrigger value="register">Register</TabsTrigger>

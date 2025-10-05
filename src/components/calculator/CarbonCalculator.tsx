@@ -15,7 +15,9 @@ type EmissionCategory = {
   color: string;
 };
 
-export default function CarbonCalculator() {
+type CalculatorType = 'personal' | 'household' | 'business' | undefined;
+
+export default function CarbonCalculator({ type }: { type?: CalculatorType }) {
   const [result, setResult] = useState<EmissionCategory[]>([
     { name: 'Transportation', value: 0, color: '#34d399' },
     { name: 'Home Energy', value: 0, color: '#10b981' },
@@ -86,22 +88,27 @@ export default function CarbonCalculator() {
     setShowResults(true);
   };
 
+  const headerTitle = type === 'household' ? 'Household Footprint' : type === 'business' ? 'Business Footprint' : 'Personal Footprint';
+  const description = type === 'household'
+    ? 'Estimate your household emissions based on shared energy and transport.'
+    : type === 'business'
+    ? 'Estimate business operations emissions (simple demo model).'
+    : 'Estimate your individual annual emissions.';
+
   return (
     <div className="max-w-4xl mx-auto">
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Carbon Footprint Calculator</CardTitle>
-          <CardDescription>
-            Calculate your estimated annual carbon emissions
-          </CardDescription>
+          <CardTitle>{headerTitle}</CardTitle>
+          <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="transportation">
             <TabsList className="grid grid-cols-4">
-              <TabsTrigger value="transportation">Transportation</TabsTrigger>
-              <TabsTrigger value="energy">Home Energy</TabsTrigger>
-              <TabsTrigger value="food">Food</TabsTrigger>
-              <TabsTrigger value="results">Results</TabsTrigger>
+              <TabsTrigger id="transportation-tab" value="transportation">Transportation</TabsTrigger>
+              <TabsTrigger id="energy-tab" value="energy">Home Energy</TabsTrigger>
+              <TabsTrigger id="food-tab" value="food">Food</TabsTrigger>
+              <TabsTrigger id="results-tab" value="results">Results</TabsTrigger>
             </TabsList>
             
             <TabsContent value="transportation" className="space-y-6 py-4">
@@ -149,18 +156,20 @@ export default function CarbonCalculator() {
                   />
                 </div>
                 
-                <div>
-                  <Label htmlFor="flights">Number of Flights per Year</Label>
-                  <Input 
-                    id="flights" 
-                    type="number" 
-                    placeholder="0" 
-                    min="0"
-                    value={transportation.flights || ''}
-                    onChange={e => setTransportation({...transportation, flights: Number(e.target.value)})}
-                    className="mt-1"
-                  />
-                </div>
+                {type !== 'business' && (
+                  <div>
+                    <Label htmlFor="flights">Number of Flights per Year</Label>
+                    <Input 
+                      id="flights" 
+                      type="number" 
+                      placeholder="0" 
+                      min="0"
+                      value={transportation.flights || ''}
+                      onChange={e => setTransportation({...transportation, flights: Number(e.target.value)})}
+                      className="mt-1"
+                    />
+                  </div>
+                )}
                 
                 <Button onClick={() => document.getElementById('energy-tab')?.click()} className="w-full mt-4 bg-carbon-500 hover:bg-carbon-600">
                   Next: Home Energy
@@ -184,7 +193,7 @@ export default function CarbonCalculator() {
                 </div>
                 
                 <div>
-                  <Label htmlFor="gas">Monthly Gas Usage (m³)</Label>
+                  <Label htmlFor="gas">{type === 'business' ? 'Monthly Natural Gas (therms)' : 'Monthly Gas Usage (m³)'}</Label>
                   <Input 
                     id="gas" 
                     type="number" 
@@ -229,23 +238,37 @@ export default function CarbonCalculator() {
             
             <TabsContent value="food" className="space-y-6 py-4">
               <div className="space-y-4">
-                <div>
-                  <Label htmlFor="dietType">Diet Type</Label>
-                  <Select 
-                    value={food.dietType} 
-                    onValueChange={value => setFood({...food, dietType: value})}
-                  >
-                    <SelectTrigger id="dietType" className="mt-1">
-                      <SelectValue placeholder="Select diet type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="vegan">Vegan</SelectItem>
-                      <SelectItem value="vegetarian">Vegetarian</SelectItem>
-                      <SelectItem value="mixed">Mixed / Flexitarian</SelectItem>
-                      <SelectItem value="high-meat">High Meat Consumption</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                {type !== 'business' ? (
+                  <div>
+                    <Label htmlFor="dietType">Diet Type</Label>
+                    <Select 
+                      value={food.dietType} 
+                      onValueChange={value => setFood({...food, dietType: value})}
+                    >
+                      <SelectTrigger id="dietType" className="mt-1">
+                        <SelectValue placeholder="Select diet type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="vegan">Vegan</SelectItem>
+                        <SelectItem value="vegetarian">Vegetarian</SelectItem>
+                        <SelectItem value="mixed">Mixed / Flexitarian</SelectItem>
+                        <SelectItem value="high-meat">High Meat Consumption</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                ) : (
+                  <div>
+                    <Label htmlFor="employees">Number of Employees (est.)</Label>
+                    <Input 
+                      id="employees" 
+                      type="number"
+                      placeholder="0"
+                      min="0"
+                      className="mt-1"
+                      onChange={() => { /* placeholder for demo – could adjust factors */ }}
+                    />
+                  </div>
+                )}
                 
                 <div>
                   <Label htmlFor="localFood">Local Food Percentage: {food.localFoodPercentage}%</Label>
