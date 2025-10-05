@@ -19,7 +19,8 @@ A web application to help individuals monitor their carbon footprint, earn rewar
 - 🔔 **Reminders & Reports** — Get weekly summaries and stay on track  
 - 📤 **Social Sharing** — Share your achievements with the world
 
----
+--- 
+![image alt](https://github.com/ravikishor-thakur/Tech-Titans-CarbonWise/blob/e26579139e05ca0d4ad33646b580f888da55646e/Website%20images/Screenshot%202025-10-05%20223517.png)
 
 ## 🛠️ Tech Stack
 
