@@ -90,7 +90,7 @@ This project is built with:
 ├── tailwind.config.js
 ├── vite.config.ts
 └── .gitignore
-
+ ![image alt](https://github.com/ravikishor-thakur/Tech-Titans-CarbonWise/blob/9e7f754f73de20fd571123a32915c90d865aeab3/Website%20images/Screenshot%202025-10-05%20223657%20-%20Copy.png)
 
 **Use your preferred IDE**
 
