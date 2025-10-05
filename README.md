@@ -1,5 +1,6 @@
 # 🌍 Carbon Footprint Tracker
 ![image alt](https://github.com/ravikishor-thakur/Tech-Titans-CarbonWise/tree/dfd2970e222a4ae68e947820934cb4a099f13aa9/Website%20images)
+ ![image alt](https://github.com/ravikishor-thakur/Tech-Titans-CarbonWise/blob/59f98634e4fc1a441d22ff995fc117f7b9f3190e/Website%20images/Screenshot%202025-10-05%20223314%20-%20Copy.png)
 
 Website Name :- CarbonWise
 
