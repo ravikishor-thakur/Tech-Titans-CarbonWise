@@ -3,6 +3,8 @@
 
 Website Name :- CarbonWise
 
+![image alt](https://github.com/ravikishor-thakur/Tech-Titans-CarbonWise/blob/654c2054f81bddc8093226530f30a2df26b284d1/Website%20images/Screenshot%202025-10-05%20223135%20-%20Copy.png)
+
 **Track, reduce, and celebrate your carbon impact — one small action at a time.**  
 A web application to help individuals monitor their carbon footprint, earn rewards, and make meaningful environmental change.
 
